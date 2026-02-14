@@ -1,132 +1,14 @@
-<script type="text/babel">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Valentine ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-const { useState } = React;
+  <div id="app"></div>
 
-const memories = [
-  {
-    title: "The Day Everything Began 💫",
-    image: "photo1.jpg",
-    message: "This was the moment everything changed."
-  },
-  {
-    title: "Our Favorite Memory 🌸",
-    image: "photo2.jpg",
-    message: "With you, everything feels magical."
-  },
-  {
-    title: "Us Being Us ❤️",
-    image: "photo3.jpg",
-    message: "Laughing, dreaming, growing — together."
-  }
-];
-
-function ValentinePage() {
-  const [started, setStarted] = useState(false);
-  const [doorIndex, setDoorIndex] = useState(0);
-  const [answered, setAnswered] = useState(null);
-  const [showMaybe, setShowMaybe] = useState(false);
-
-  const nextDoor = () => {
-    if (doorIndex <= memories.length) {
-      setDoorIndex(doorIndex + 1);
-    }
-  };
-
-  return (
-    <div className="min-h-screen flex items-center justify-center p-6 text-center bg-gradient-to-br from-pink-100 via-rose-200 to-pink-300">
-
-      {!started ? (
-        <div>
-          <h1 className="text-4xl font-bold text-rose-700">
-            I Built Something For You ❤️
-          </h1>
-          <button
-            className="mt-8 px-6 py-3 bg-rose-600 text-white rounded-xl"
-            onClick={() => setStarted(true)}
-          >
-            Enter
-          </button>
-        </div>
-
-      ) : doorIndex < memories.length ? (
-
-        <div className="bg-white p-8 rounded-3xl shadow-xl">
-          <h2 className="text-2xl text-rose-700 mb-4">
-            Door {doorIndex + 1}
-          </h2>
-          <button
-            className="px-6 py-3 bg-rose-600 text-white rounded-xl"
-            onClick={() => setDoorIndex(doorIndex + 1)}
-          >
-            Open Door 🚪
-          </button>
-        </div>
-
-      ) : doorIndex === memories.length ? (
-
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-3xl">
-            <img
-              src={memories[doorIndex - 1].image}
-              className="w-96 h-64 object-cover rounded-xl"
-            />
-            <p className="mt-4">{memories[doorIndex - 1].message}</p>
-            <button
-              className="mt-6 px-6 py-3 bg-rose-600 text-white rounded-xl"
-              onClick={nextDoor}
-            >
-              Next ❤️
-            </button>
-          </div>
-        </div>
-
-      ) : (
-
-        <div className="bg-white p-10 rounded-3xl shadow-xl">
-          {answered === null ? (
-            <>
-              <h2 className="text-3xl text-rose-700 mb-6">
-                Will you be my Valentine? ❤️
-              </h2>
-
-              <div className="flex gap-6 justify-center">
-                <button
-                  className="px-6 py-3 bg-rose-600 text-white rounded-xl"
-                  onClick={() => setAnswered(true)}
-                >
-                  Yes 😍
-                </button>
-
-                <button
-                  className="px-6 py-3 bg-gray-300 rounded-xl"
-                  onClick={() => setShowMaybe(true)}
-                >
-                  Maybe 🙈
-                </button>
-              </div>
-
-              {showMaybe && (
-                <div className="mt-6 bg-rose-100 p-4 rounded-xl">
-                  Sorry 😌 this option was closed 1325 days ago ❤️
-                </div>
-              )}
-            </>
-          ) : (
-            <>
-              <div className="fixed inset-0 pointer-events-none animate-pulse text-6xl">
-                🎉 🎊 💖 🎉 🎊 💖
-              </div>
-              <h2 className="text-4xl text-rose-700 font-bold">
-                LOVE YOU CHADDI ❤️🎉
-              </h2>
-            </>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<ValentinePage />);
-
-</script>
+  <script src="script.js"></script>
+</body>
+</html>
